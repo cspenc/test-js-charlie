@@ -1,5 +1,6 @@
 import moment from 'moment'
 import movies from './movies'
+import _ from 'lodash';
 
 
 export function getPopularMovies () {
@@ -14,12 +15,20 @@ export function getPopularMovies () {
   //    this is used in src/components/movies-list.js line 25
   //
 
-  const combinedResults = []
+  const combinedResults = [ ...movies[0], ...movies[1] ]
+
+  combinedResults.forEach((movie) => {
+    movie.year = parseInt(movie.releaseDate) // gives you year
+  })
+
+  var sort = _.orderBy(combinedResults, ['year', 'title']) // orderby year then title
+
+  sort.forEach((movie) => {
+    console.log(`${movie.title}, ${movie.year}`)
+  })
 
   return {
     type: 'GET_MOVIES_SUCCESS',
     movies: combinedResults
   }
 }
-
-
