@@ -23,7 +23,7 @@ export function getPopularMovies () {
 
   var sorted = _.orderBy(mergedMovies, ['releaseYear', 'title']); // orderby year then title
 
-  const combinedResults = sorted;
+  const combinedResults = _.uniqBy(sorted, (movie) => movie.title); // unique movie titles
 
   return {
     type: 'GET_MOVIES_SUCCESS',
