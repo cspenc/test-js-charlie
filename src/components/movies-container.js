@@ -2,7 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 export function MoviesContainer(props) {
-  return (<h1>TODO :)</h1>)
+  let movies = props.movies.map((movie) => {
+    return (
+      <div>{movie.title} - {movie.releaseYear}</div>
+    )
+  })
+
+  return (
+    <div>
+      {movies}
+    </div>
+  )
 }
 
 const mapStateToProps = state => {
