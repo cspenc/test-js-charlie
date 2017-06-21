@@ -15,13 +15,17 @@ export function getPopularMovies () {
   //    this is used in src/components/movies-list.js line 25
   //
 
-  const mergedMovies = [ ...movies[0], ...movies[1] ];
+  var combinedMovies = [];
 
-  mergedMovies.forEach((movie) => {
+  movies.forEach((arr) => {
+    combinedMovies = [...combinedMovies, ...arr]
+  })
+
+  combinedMovies.forEach((movie) => {
     movie.releaseYear = parseInt(movie.releaseDate); // gives you year
   })
 
-  var sorted = _.orderBy(mergedMovies, ['releaseYear', 'title']); // orderby year then title
+  var sorted = _.orderBy(combinedMovies, ['releaseYear', 'title']); // orderby year then title
 
   const combinedResults = _.uniqBy(sorted, (movie) => movie.title); // unique movie titles
 
