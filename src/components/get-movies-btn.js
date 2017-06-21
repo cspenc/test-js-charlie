@@ -16,7 +16,7 @@ class GetMoviesBtn extends React.Component {
 
   render () {
     return (
-      <button onClick={() => {this._requestMovies()}}>
+      <button className="movieBtn" onClick={() => {this._requestMovies()}}>
         Get Popular Movies
       </button>
     )
