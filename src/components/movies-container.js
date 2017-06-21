@@ -6,10 +6,10 @@ export function MoviesContainer(props) {
     return (
       <div key={movie.title} className="movie">
         <div className="image">
-          <img src={movie.image} className="image" />
+          <img src={movie.image} />
         </div>
         <div className="text">
-          <h4 className="title">{movie.title}</h4>
+          <h3 className="title">{movie.title}</h3>
           <p className="price">Price: ${movie.price}</p>
           <p className="year">Year: {movie.releaseYear}</p>
         </div>

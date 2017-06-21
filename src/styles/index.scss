@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
 $font: 'Roboto', sans-serif;
 $background: #F3F3F3;
@@ -21,12 +21,13 @@ main {
   .movie {
     background-color: white;
     width: 90%;
-    height: 200px;
+    min-height: 250px;
     margin: 10px auto;
     padding: 0px;
     display: flex;
 
     .image {
+      height: 250px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -34,15 +35,29 @@ main {
       width: 40%;
 
       img {
-        flex-shrink: 0;
         min-width: 100%;
-        min-height: 100%
+        min-height: 100%;
+        object-fit: cover;
       }
 
     }
 
     .text {
       padding: 20px;
+      width: 60%;
+
+      .title {
+        font-size: 1.5em;
+        font-weight: 700;
+      }
+
+      .price {
+        font-weight: 700;
+      }
+
+      .year {
+
+      }
     }
   }
 }
@@ -50,7 +65,7 @@ main {
 @media (max-width: 600px) {
   .movies {
     .movie {
-      height: 500px;
+      min-height: 500px;
       display: flex;
       flex-wrap: wrap;
 
