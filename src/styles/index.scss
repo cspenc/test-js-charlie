@@ -1,33 +1,42 @@
+// import font from google fonts
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:400,700');
 
+// set variables for font, background color, and shadow color
 $font: 'Roboto', sans-serif;
 $background: #F2F2F2;
+$movieBg: #FFFFFF;
 $shadow: #E5E5E5;
 
+// set font and background for all of page
 body {
   font-family: $font;
   background-color: $background;
 }
 
+// set margin on main to add some space on the sides
 main {
   margin: 10px;
 
+  // customize get movies button
   .movieBtn {
     font-family: $font;
     font-weight: 700;
     font-size: 0.8em;
-    background: white;
+    background: $movieBg;
     border: 1px solid $shadow;
     border-radius: 5px;
     padding: 10px;
   }
 }
 
+// styling added to movies div
 .movies {
   padding-top: 20px;
 
+  // styling added to individual movie divs
+  // used flexbox, added a light box shadow
   .movie {
-    background-color: white;
+    background-color: $movieBg;
     width: 90%;
     min-height: 250px;
     margin: 10px auto;
@@ -37,6 +46,9 @@ main {
     -webkit-box-shadow: 3px 3px 2px $shadow;
     -moz-box-shadow: 3px 3px 2px $shadow;
 
+    // styling for each image in each movie div
+    // set height and width that is responsive, image overflow
+    // is hidden, and will align center
     .image {
       height: 250px;
       display: flex;
@@ -45,6 +57,8 @@ main {
       overflow: hidden;
       width: 50%;
 
+      // set min width & height of 100% so that image is always taking
+      // full space and fit to cover
       img {
         min-width: 100%;
         min-height: 100%;
@@ -52,10 +66,12 @@ main {
       }
     }
 
+    // styling for the text
     .text {
       padding: 20px;
       width: 60%;
 
+      // title is bigger, with a heavier weight
       .title {
         font-size: 1.4em;
         font-weight: 700;
@@ -72,13 +88,16 @@ main {
   }
 }
 
+// when the width is 600px or less, adjust these settings
 @media (max-width: 600px) {
   .movies {
+    // movie will have a min height of 500 with flex wrap
     .movie {
       min-height: 500px;
       display: flex;
       flex-wrap: wrap;
 
+      // image will take up the whole width of the div
       .image {
         height: 300px;
         flex: 1 100%;
@@ -88,6 +107,7 @@ main {
         }
       }
 
+      // text will stack below it
       .text {
         width: 100%;
       }
